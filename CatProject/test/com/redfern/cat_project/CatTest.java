@@ -7,10 +7,10 @@ import org.junit.jupiter.api.Test;
 
 class CatTest {
 	
-	private static Cat felix;
+	protected static Cat felix;
 
 	@BeforeAll
-	public static void setUpBeforeClass() throws Exception {
+	static void setUpBeforeClass() throws Exception {
 		felix = new Cat("Felix", "male", 6);
 	}
 
@@ -24,5 +24,14 @@ class CatTest {
 		assertNotEquals(7, felix.getAge());
 	}
 	
-
+	@Test
+	void meow_GivenStringAndSize_ShouldReturnArrayOfStrings() {
+		int length = 10;
+		String catSez = "meow";
+		String[] strings = felix.meow(catSez, length);
+		assertEquals(length, strings.length);
+		for(int i=0; i<length; i++) {
+			assertEquals(catSez, strings[i]);
+		}
+	}
 }
