@@ -12,6 +12,7 @@ public class Cat implements Serializable{
 	private String gender;
 	private int age;
 	private boolean isAMouser = true;
+	private int breed;
 	
 	public Cat(String name, String gender, int age) {
 		this.name = name;
